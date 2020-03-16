@@ -22,10 +22,12 @@ namespace CaptiveDependencyTest
                 {
                     webBuilder.UseStartup<Startup>();
                 })
-            .UseDefaultServiceProvider((c) =>
+            .UseDefaultServiceProvider((env, c) =>
             {
-                c.ValidateScopes = true;
-               
+                if (env.HostingEnvironment.IsDevelopment())
+                {
+                    c.ValidateScopes = true;
+                }
             });
     }
 }

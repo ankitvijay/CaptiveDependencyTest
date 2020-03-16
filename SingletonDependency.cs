@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CaptiveDependencyTest
+﻿namespace CaptiveDependencyTest
 {
     public class SingletonDependency
     {
-        private readonly TransientDependency transitiveDependecy;
+        private readonly ScopedDependency scopedDepdendency;
 
         // Should this blow up??
-        public SingletonDependency(TransientDependency transitiveDependecy)
+        public SingletonDependency(ScopedDependency transitiveDependecy)
         {
-            this.transitiveDependecy = transitiveDependecy;
+            this.scopedDepdendency = transitiveDependecy;
         }
 
         public int GetNextCounter()
         {
-            return transitiveDependecy.GetNextCounter();
+            return scopedDepdendency.GetNextCounter();
         }
     }
 }

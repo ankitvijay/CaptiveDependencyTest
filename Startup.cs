@@ -28,7 +28,7 @@ namespace CaptiveDependencyTest
             services.AddControllers();
 
             services.AddSingleton<SingletonDependency>();
-            services.AddTransient<TransientDependency>();
+            services.AddScoped<ScopedDependency>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
