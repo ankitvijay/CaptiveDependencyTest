@@ -5,17 +5,12 @@ using System.Threading.Tasks;
 
 namespace CaptiveDependencyTest
 {
-    public interface ISingletonDependecy
+    public class SingletonDependency
     {
-        public int GetNextCounter();
-    }
+        private readonly TransientDependency transitiveDependecy;
 
-    public class SingletonDependency : ISingletonDependecy
-    {
-        private readonly ITransientDependency transitiveDependecy;
-
-        // Should this below up??
-        public SingletonDependency(ITransientDependency transitiveDependecy)
+        // Should this blow up??
+        public SingletonDependency(TransientDependency transitiveDependecy)
         {
             this.transitiveDependecy = transitiveDependecy;
         }

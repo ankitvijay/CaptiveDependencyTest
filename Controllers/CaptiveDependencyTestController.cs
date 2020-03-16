@@ -11,9 +11,9 @@ namespace CaptiveDependencyTest.Controllers
     [Route("[controller]")]
     public class CaptiveDependencyTestController : ControllerBase
     {
-        private readonly ISingletonDependecy singletonDependecy;
+        private readonly SingletonDependency singletonDependecy;
 
-        public CaptiveDependencyTestController(ISingletonDependecy singletonDependecy)
+        public CaptiveDependencyTestController(SingletonDependency singletonDependecy)
         {
             this.singletonDependecy = singletonDependecy;
         }
@@ -21,6 +21,7 @@ namespace CaptiveDependencyTest.Controllers
         [HttpGet]
         public string Get()
         {
+            
             return $"Next count: {singletonDependecy.GetNextCounter()}";
         }
     }

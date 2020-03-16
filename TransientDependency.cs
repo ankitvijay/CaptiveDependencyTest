@@ -5,12 +5,8 @@ using System.Threading.Tasks;
 
 namespace CaptiveDependencyTest
 {
-    public interface ITransientDependency
-    {
-        public int GetNextCounter();
-    }
 
-    public class TransientDependency : ITransientDependency
+    public class TransientDependency
     {
         public static int _counter = 0;
         public TransientDependency()

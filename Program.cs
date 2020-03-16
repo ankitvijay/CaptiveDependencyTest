@@ -21,6 +21,11 @@ namespace CaptiveDependencyTest
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+            .UseDefaultServiceProvider((c) =>
+            {
+                c.ValidateScopes = true;
+               
+            });
     }
 }
